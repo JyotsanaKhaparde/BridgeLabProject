@@ -1,0 +1,19 @@
+package com.bridgeit.functionandlibraries;
+
+import utility.Utility;
+import utility.Utility2;
+
+public class StringFunctionE {
+	public static void main(String[] args) {
+		System.out.println("Enter first string: ");
+		String string1 = Utility.getString();
+		
+		System.out.println("Enter first string: ");
+		String string2 = Utility.getString();
+		
+		Utility2.stringFunctionE(string1, string2);
+
+		
+	}
+
+}

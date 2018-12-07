@@ -1,0 +1,34 @@
+package com.bridgeit.functionAndLibraries;
+
+import utility.Utility;
+import utility.Utility2;
+
+public class MathFunction10 {
+	public static void main(String[] args) {
+		
+		//take any random value from user
+		
+		System.out.println("Enter random value: ");
+		int n = Utility2.getInt();
+		int [] arry = new int[n];
+
+		System.out.println("Enter value in array :");
+		for(int i = 0 ; i < n ;i++ ) {
+			arry[i]=Utility.getInt();
+
+		}
+		
+		 //it will call maxValue(int n) method
+
+		int max = Utility2.maxValue(n, arry);
+		System.out.println("Maximum value is : "+max);
+		
+		 //it will call minValue(int n) method
+
+		int min = Utility2.minValue(n, arry);
+		System.out.println("Minimum value is : "+min );
+
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.bridgelabz.stringandarrays;
+
+import utility.Utility;
+
+public class MagicNumber {
+	public static void main(String[] args) {
+		System.out.println("Enter any number: ");
+		int n = Utility.getInt();
+		int N = (int) Math.pow(n, 2);
+		int array[] = new int[N];
+		for(int i = 1 ; i < array.length - 1 ; i++) {
+			System.out.println(array[i]);
+		}
+	}
+}

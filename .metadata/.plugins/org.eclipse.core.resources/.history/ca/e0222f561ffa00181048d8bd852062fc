@@ -1,0 +1,62 @@
+package com.bridgelabz.stringandarrays;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+import javax.swing.CellEditor;
+
+import utility.Utility;
+
+public class BinarySearchOfWord {
+	public static void main(String[] args) throws IOException {
+		
+		System.out.println("Enter any word for checking : ");
+		String word = Utility.getString();
+
+		String str="";
+		Scanner reader = new Scanner(new File("BinarySrarchOfWord.txt"));
+		while (reader.hasNext()){
+			str = reader.nextLine();
+	  }
+		System.out.println(str);
+		String s = str;
+		String check = "";
+        String[] arrOfStr = s.split(",", 4); 
+		//String[] string = new String[str];
+        
+   /*    for (String a : arrOfStr) 
+            System.out.println(a); 
+		for(int i = 0 ; i < arrOfStr.length ; i++) {
+			if(word.equals(arrOfStr[i])) {
+				check = arrOfStr[i];
+			}
+			}*/
+        int first = 0;
+        int last = arrOfStr.length;
+        int mid  =  (first + last)/2;
+        for(int i = 0 ; i <= mid ; i++) {
+        	if(word.equals(arrOfStr[i])) {
+        		check = arrOfStr[i];
+        	}
+        }
+        for(int i = mid ; i <= last ; i++) {
+        	if(word.equals(arrOfStr[i])) {
+        		check = arrOfStr[i];
+        	}
+        }
+		//System.out.println("match word is : "+check);
+		
+			if(word.equals(check)) {
+				System.out.println("yes, word is found");
+
+			}
+		else {
+				System.out.println("word is not found");
+			}
+		}
+	}
+	 
+	
+	
+

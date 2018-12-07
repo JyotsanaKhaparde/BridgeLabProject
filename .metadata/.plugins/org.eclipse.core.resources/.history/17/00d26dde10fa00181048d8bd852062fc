@@ -1,0 +1,8 @@
+package com.bridgelabz.stringandarrays;
+
+public class BinarySearchOfWord {
+	public static void main(String[] args) {
+		
+	}
+
+}

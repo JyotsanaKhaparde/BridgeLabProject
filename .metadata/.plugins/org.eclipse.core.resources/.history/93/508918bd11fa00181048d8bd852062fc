@@ -1,0 +1,25 @@
+package com.bridgelabz.stringandarrays;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+import utility.Utility;
+
+public class BinarySearchOfWord {
+	public static void main(String[] args) throws IOException {
+		String str="";
+		Scanner reader = new Scanner(new File("BinarySrarchOfWord.txt"));
+		while (reader.hasNext()){
+			str = reader.nextLine();
+	  }
+		System.out.println(str);
+		
+		System.out.println("Enter any word for checking : ");
+		String word = Utility.getString();
+
+	}
+	 
+	}
+	
+

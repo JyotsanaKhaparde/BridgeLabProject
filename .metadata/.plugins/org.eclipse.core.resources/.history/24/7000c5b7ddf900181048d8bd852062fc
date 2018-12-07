@@ -1,0 +1,18 @@
+package com.bridgeit.functionandlibraries;
+
+//import utility.Utility;
+import utility.Utility2;
+
+public class StringFunctionB {
+public static void main(String[] args) {
+	System.out.println("Enter first string :");
+	String input =  Utility2.getString();
+	boolean x = Utility2.isPalindrome(input);
+	if(x) {
+		System.out.println("string is palindrom");
+	}else {
+		System.out.println("string is not palindrom");
+
+	}
+}
+}
