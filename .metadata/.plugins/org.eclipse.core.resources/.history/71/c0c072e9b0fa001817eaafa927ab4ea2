@@ -1,0 +1,27 @@
+package com.bridgelabz.stringandarrays;
+
+import utility.Utility;
+
+public class BubbleSort {
+	public static void main(String[] args) {
+		int n ;
+		System.out.println("Enter any number: ");
+		n = Utility.getInt();
+		int array[] = new int[n];
+		Utility.bubbleSort(array,n);
+		
+		for(int i =0 ; i < n ; i++) {
+			array[i] = Utility.getInt();
+		}
+
+		if(n<0) {
+			System.out.println("please enter positive number: ");
+			n = Utility.getInt();
+			Utility.insertionSort(array,n);
+		}else {
+			Utility.insertionSort(array,n);
+
+		}
+	}
+
+}

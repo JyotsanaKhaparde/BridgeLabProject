@@ -1,0 +1,20 @@
+package com.bridgelabz.datastructure;
+
+
+public class MyLinkedListTest {
+	public static void main(String[] args) {
+    	MyLinkedList<Integer> obj = new MyLinkedList<Integer>();
+    	obj.add(18);
+    	obj.add(45);
+    	obj.add(12);
+    	obj.insertAtStart(25);
+    	obj.insertAt(0, 55);
+    	obj.deleteAt(3);
+
+    	//obj.pop();
+    	obj.show();
+
+	
+	}
+
+}

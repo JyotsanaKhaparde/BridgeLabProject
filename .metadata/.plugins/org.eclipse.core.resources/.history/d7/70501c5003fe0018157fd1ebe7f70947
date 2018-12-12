@@ -1,0 +1,11 @@
+package com.bridgelabz.datastructure;
+
+import com.bridgelabz.datastructure.LinkedList.Node;
+
+public class NodeOrderedList {
+
+		int data; 
+		Node next; 
+		NodeOrderedList(int d) {data = d; next = null; } 
+	} 
+

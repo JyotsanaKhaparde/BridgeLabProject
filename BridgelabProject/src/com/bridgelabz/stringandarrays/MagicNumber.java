@@ -17,7 +17,7 @@ public class MagicNumber {
 
 		
 		   int first = 0;
-	        int last = arrOfStr.length;
+	        int last = array.length;
 	        int mid  =  (first + last)/2;
 	        
 	        //loop for search words upto mid point.

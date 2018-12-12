@@ -1,0 +1,99 @@
+package com.bridgelabz.datastructure;
+
+public class MyOrderedList<T extends Comparable<? super T>> {
+	private Node<T> lastNode;
+    private  Node<T> first;
+    Node<T> pre = null;
+    private int count = 0; 
+    Node<T> head;
+    Node<T> traverse;
+    Node<T> temp;
+    Node<T> temp1;
+    
+    //**************************************************** 
+
+    public MyOrderedList(){
+        this.lastNode = null;
+        this.count = 0;
+    }
+    
+    //*****************************************************
+
+  
+    public boolean isEmpty() {
+        return this.count == 0;
+    }
+    
+    //****************************************************
+   
+    public void add(T data){
+   
+		Node<T> node = new Node<T>( data,null);
+
+        if (head == null)
+            head = node;
+
+        else {
+            traverse = head;
+            if (head.data.compareTo(node.data)>0){
+                head = node;
+                node.next = traverse;
+                }
+
+            if (head.data.compareTo(node.data)<0){
+                temp = head;
+                while (traverse.next != null){
+                    if( traverse.data.compareTo(node.data)<0) {
+                        temp = traverse;
+                    traverse = traverse.next;
+                    }
+
+                if (traverse.data.compareTo(node.data)<0)
+                    temp = traverse;
+
+                temp1 = temp.next;
+                temp.next = node;
+                node.next = temp1;
+            }
+            }
+        }
+    }
+    
+ //****************************************************
+    
+    //show element 
+    
+    public void show() {
+    	Node<T> node = head;
+    	while(node.next != null) {
+    		System.out.println(node.data);
+    		node = node.next; //shift the next node
+    	}
+    	System.out.println(node.data);
+    }
+    
+    //*******************************************************
+    
+    public int size() {
+        return count;
+    }
+    
+    //********************************************************
+
+    //add element at the start
+    
+    public void insertAtStart(T data) {
+    	Node<T> next = head;
+
+    	Node<T> node = new Node<T>(data,next);
+    	node.data = data;
+    	node.next  =null;  
+    	node.next = head;
+    	head = node;
+    	count++;
+    }
+    
+    //***************************************************************
+    
+    
+}

@@ -1,0 +1,301 @@
+package com.bridgelabz.datastructure;
+
+import com.bridgelabz.datastructure.LinkedList.Node;
+
+public class MyOrderedList<T extends Comparable<? super T>> {
+	private Node lastNode;
+    private  Node first;
+    Node pre = null;
+    private int count = 0; 
+    Node head;
+    Node traverse;
+    Node temp;
+    Node temp1;
+    
+    //**************************************************** 
+
+    public MyOrderedList(){
+        this.lastNode = null;
+        this.count = 0;
+    }
+    
+    //*****************************************************
+
+  
+    public boolean isEmpty() {
+        return this.count == 0;
+    }
+    
+    //****************************************************
+   
+    public void add(int data){
+   
+		NodeOrderedList node = new NodeOrderedList( data);
+
+        if (head == null) {
+            head = node;
+        	count++;
+        }
+
+        else {
+            traverse = head;
+            if (head.data > node.data){
+                head = node;
+                node.next = traverse;
+                }
+
+            if (head.data < node.data){
+                temp = head;
+                while (traverse.next != null){
+                    if( traverse.data < node.data) {
+                        temp = traverse;
+                    traverse = traverse.next;
+                    }
+
+               if (traverse.data > node.data) {
+                    temp = traverse;
+                    temp1 = temp.next;
+                    temp.next = node;
+                    node.next = temp1;
+               }
+            }
+            }
+        }
+    }
+    
+ //****************************************************
+    
+    //show element 
+    
+    public void show() {
+    	NodeOrderedList node = head;
+    	while(node.next != null) {
+    		System.out.println(node.data);
+    		node = node.next; //shift the next node
+    	}
+    	System.out.println(node.data);
+    }
+    
+    //*******************************************************
+    
+    public int size() {
+        return count;
+    }
+    
+    //********************************************************
+
+    //add element at the start
+    
+    public void insertAtStart(int data) {
+    	NodeOrderedList next = head;
+
+    	NodeOrderedList node = new NodeOrderedList(data);
+    	node.data = data;
+    	node.next  =null;  
+    	node.next = head;
+    	head = node;
+    	count++;
+    }
+    
+    //***************************************************************
+    
+ //insert at any location
+    
+    public void insertAt(int index , int data) {
+    	NodeOrderedList next = head;
+
+    	NodeOrderedList  node = new NodeOrderedList(data);
+    	node.data = data;
+    	node.next = null;
+    	NodeOrderedList travel = head;  
+    	if(index == 0) {
+    		insertAtStart(data);
+    		count++;
+    	}else {
+    	for(int i = 0 ; i < index-1 ; i++) {
+    		travel = travel.next;
+    	}
+    	node.next = travel.next;
+    	travel.next = node;
+    	count++;
+    	}
+    }
+    
+    
+    //**********************************************************
+    
+    //delete element of any location
+    
+  
+    public void deleteAt(int index)
+	{
+		if(index==0)
+		{
+			head = head.next;
+			count--;
+		}
+		else
+		{
+			Node<T> n = head;
+			Node<T> n1 = null;
+			for(int i=0;i<index-1;i++)
+			{
+				n = n.next;
+			}
+			n1 = n.next;
+			n.next = n1.next;
+			count--;
+			//System.out.println("n1 " + n1.data);
+			n1 = null;
+		}
+}
+    
+    //*********************************************************
+    
+    
+    //Remove and return the last item in the list
+    
+    public T pop() {
+    	Node<T> travel = head;
+    	Node<T> t1 ;
+    	while(travel.next != null)
+    		{
+    		t1 = travel.next;
+    		if(t1.next == null)
+    		{
+    			travel.next = null;
+    			count--;
+    			//System.out.println("t1 = "+t1.data);
+    			return  t1.data;
+    		}
+    		travel = travel.next;
+    		}
+    		return null;
+            }
+    
+    //**********************************************************
+    
+    //search for the item in the list.
+    
+    public boolean search(T data)
+    {
+		Node<T> temp=head;
+        for(int i=0; i<size(); i++)
+        {
+
+            if(temp.data.equals(data))
+            {
+                return true;
+            }else {
+                temp = temp.next;
+                if(! temp.data.equals(data)) {
+                	return false;
+                }
+            }
+        }
+        return false;
+        
+     }
+    
+ //*****************************************************************
+    
+    public int index(T data) {
+    	Node<T> temp = head;
+    	for(int i = 0 ; i < size() ; i++) {
+    		if(temp.data.equals(data)) {
+    			return i ;
+    		}
+    		temp = temp.next;
+    	}
+		return -1;
+    	
+    }
+    
+ //*******************************************************
+    
+    
+    public T pop(int index)
+    {
+        if(index==0)
+        {
+        	head = head.next;
+           // T firstData=head.data;
+            count--;
+            //return firstData;
+        }else {
+        Node<T> temp=head;
+        for(int i=0; i<index-1; i++)
+        {
+            temp=temp.next;
+        }
+        T dataOfIndex=temp.next.data;
+        temp.next=temp.next.next;
+        count--;
+        return dataOfIndex;
+
+        }
+		return null;
+    }
+    
+    //*************************************************************
+    
+    public Object[] toArray() {
+        Object[] result = new Object[size()];
+        int i = 0;
+        for (Node<T> x = head; x != null; x = x.next)
+            result[i++] = x.data;
+        return result;
+    }
+    
+    //***************************************************************
+    
+    
+    /* function to insert a new_node in a list. */
+	void sortedInsert(Node new_node) 
+	{ 
+		Node current; 
+
+	
+		/* Special case for head node */
+		if (head == null || head.data >= new_node.data) 
+		{ 
+			new_node.next = head; 
+			head = new_node; 
+		} 
+		else { 
+
+			/* Locate the node before point of insertion. */
+			current = head; 
+
+			while (current.next != null && 
+				current.next.data < new_node.data) 
+				current = current.next; 
+
+			new_node.next = current.next; 
+			current.next = new_node; 
+		} 
+	} 
+
+				/*Utility functions*/
+
+	/* Function to create a node */
+	Node newNode(int data) 
+	{ 
+	Node x = new Node(data); 
+	return x; 
+	} 
+
+	/* Function to print linked list */
+	void printList() 
+	{ 
+		
+		Node temp = head; 
+		while (temp != null) 
+		{ 
+			System.out.print(temp.data+" "); 
+			temp = temp.next; 
+		} 
+	} 
+
+    
+}

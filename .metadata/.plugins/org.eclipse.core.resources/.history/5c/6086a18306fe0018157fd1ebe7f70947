@@ -1,0 +1,27 @@
+package com.bridgelabz.datastructure;
+
+import com.bridgelabz.datastructure.LinkedList.Node;
+
+import utility.Utility;
+
+public class MyLinkedListTest {
+	public static void main(String[] args) {
+    	MyOrderedList obj = new MyOrderedList();
+		NodeOrderedList new_node; 
+
+    	//obj.add(18);
+    	obj.add(45);
+    	obj.add(12);
+    	//obj.add(37);
+    	obj.add(15);
+    	obj.show();
+    	
+
+
+    	
+    	
+
+	
+	}
+
+}

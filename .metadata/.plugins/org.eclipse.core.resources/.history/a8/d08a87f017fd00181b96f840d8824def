@@ -1,0 +1,18 @@
+package com.bridgelabz.datastructure;
+
+public class Node<T> {
+  /*  public Node<T> nextNode = null;
+    public Node<T> previousNode = null;
+    public int index;
+    public T data;
+
+    public Node(T data){
+        this.data = data;
+    }*/
+	
+	public Node(T data2) {
+		// TODO Auto-generated constructor stub
+	}
+	public T data;
+	Node<T> next;
+}

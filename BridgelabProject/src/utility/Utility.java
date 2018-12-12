@@ -1,12 +1,22 @@
 package utility;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Random;
 //https://github.com/Saurabh323351/Bridgelabz/blob/master/BridgelabzPrograms/src/com/bridgelab/utility/Utility.java
 import java.util.Scanner;
+
+import com.bridgelabz.datastructure.MyLinkedList;
+import com.bridgelabz.datastructure.MyOrderedList;
+import com.bridgelabz.datastructure.NodeOrderedList;
 
 
 
@@ -1035,9 +1045,328 @@ public class Utility {
 
 
 	}
+	
+	//***********************Insertionsort****************************************
 
+	public static void insertionSort(int[] array, int n) {
+		
+		//put n number in array list
+		
+			int temp;
+				for(int i = 0 ; i<n ; i++) {
+					 array[i]=Utility.getInt();
+				}
+				
+				//swap if any number is less then the any of previous number.
+				
+				for(int i = 1; i < array.length ; i++) {
+					for(int j = 0 ; j < i-1 ; j++) {
+						if(array[i] < array[j]) {
+							temp = array[j];
+							array[j]= array[i];
+							array[i]= temp;
+						}  
+					}
+				}
+				
+				//sorted list of number
+				
+				for(int i = 0 ; i < array.length ; i++) {
+					System.out.println(array[i]);
+				}
+		
 	}
+	
+	//***********************************BinarySearchOfWord**********************************
 
+	public static void binarySearch(String word) throws IOException {
+
+		//Read in a list of words from File
+		
+		String str="";
+		Scanner reader = new Scanner(new File("BinarySrarchOfWord.txt"));
+		while (reader.hasNext()){
+			str = reader.nextLine();
+	  }
+		//System.out.println(str);
+		String s = str;
+		String check = "";
+        String[] arrOfStr = s.split(",", 4); 
+        
+        // this code is for same output without binary search.
+        
+		/* String[] string = new String[str];
+        
+     	for (String a : arrOfStr) 
+            System.out.println(a); 
+		for(int i = 0 ; i < arrOfStr.length ; i++) {
+			if(word.equals(arrOfStr[i])) {
+				check = arrOfStr[i];
+			}
+			}*/
+        
+        // search the word with binary search.
+        
+        int first = 0;
+        int last = arrOfStr.length;
+        int mid  =  (first + last)/2;
+        
+        //loop for search words upto mid point.
+        
+        
+        for(int i = 0 ; i <= mid ; i++) {
+        	if(word.equals(arrOfStr[i])) {
+        		check = arrOfStr[i];
+        	}
+        }
+        
+        //loop for search word after mid point.
+        
+        for(int i = mid ; i < last ; i++) {
+        	if(word.equals(arrOfStr[i])) {
+        		check = arrOfStr[i];
+        	}
+        }
+		
+			if(word.equals(check)) {
+				System.out.println("yes, word is found");
+
+			}
+		else {
+				System.out.println("word is not found");
+			}		
+	}
+	
+	//********************************BubbleSort***************************************
+
+	public static void bubbleSort(int[] array, int n) {
+		int temp;
+		
+		//loop for getting input from user
+		
+		for(int i =0 ; i < n ; i++) {
+			array[i] = Utility.getInt();
+		}
+		
+		//loop for perform bubble sort
+		
+		for(int i =  0 ; i < n-1 ; i++) {
+			for(int j = i+1 ; j < n ; j++) {
+				if(array[i]>array[j]) {
+					temp = array[j];
+					array[j]=array[i];
+					array[i]= temp;
+				}
+			}
+		}
+		
+		//sorted list of number
+		
+		for(int i = 0 ; i < array.length ; i++) {
+			System.out.println(array[i]);
+		}
+	}
+	
+	//********************************MergeSort******************************************
+
+	public static void mergeSort(String[] array, int n) {
+		int temp;
+		int k;
+		//loop for getting input from user
+		
+		for(k =0 ; k < n ; k++) {
+			array[k] = Utility.getString();
+		}
+		for(k = 0 ; k < n ; k++) {
+			System.out.println(array[k]);
+		}
+		int i;
+		int j;
+		int low = 0 ;
+		int high = array.length;
+		int mid = (low + high)/2;
+		String  Left[] = null;
+		String Right[] = null;
+		 
+		for(i = low ; i <= mid ; i++) {
+			 Left[i] = Utility.getString();
+		}
+		for(i =low ; i<= mid ; i++) {
+			System.out.println(Left[i]);
+		}
+		
+		 for(j = mid+1 ; j <= high ; j++) {
+			 Right[j] = Utility.getString();
+		 }
+		 
+		 for(j =mid+1 ; j<= high ; j++) {
+				System.out.println(Right[j]);
+			}
+
+		 
+		 int nL = Left.length;
+		 int nR = Right.length;
+		 
+		 while(i < nL && j < nR) {
+			 if(Left[i].compareToIgnoreCase(Right[j])<0) {
+				 array[k]=Left[i];
+				 k++;
+				 i++;
+			 }else {
+				 array[k]=Right[j];
+				 k++;
+				 j++;
+			 }
+			}
+		 while(i < nL) {
+			 array[k]=Left[i];
+			 i++;
+			 k++;
+		 }
+		 while(j < nR) {
+			 array[k]=Right[j];
+			 j++;
+			 k++;
+		 }
+		 
+		 for(int k1 = 0 ; k1 < n ; k1++) {
+			 System.out.println(array[k1]);
+		 }
+		
+		
+			
+		}
+	
+	//*****************************UnorderedList***************************************************
+
+	public static void unorderedList(String word) throws IOException {
+		
+		//Read in a list of words from File
+
+		  		//String p = "";
+				String str="";
+				Scanner reader = new Scanner(new File("unorderedlist.txt"));
+				while (reader.hasNext()){
+					str = reader.nextLine();
+			
+				}
+				
+				String s = str;
+				//String check = "";
+		        String[] arrOfStr = s.split(",", str.length()); 
+		        
+		        MyLinkedList<String> al = new MyLinkedList<String>();
+		        for(int i = 0 ; i < arrOfStr.length ; i++) {
+		        	al.add(arrOfStr[i]);
+		        }
+		        al.show();
+	        	if(al.search(word)){
+	        		String s1 = word;
+	        		System.out.println("this word is alredy in list so remove it");
+	        		//System.out.println(al.index(s1));
+					int Deletedata = al.index(s1);
+					al.pop(Deletedata);
+					al.show();
+	        	
+		        	   }
+	        		else 
+	        		{
+	        			System.out.println("this word is not in the list so add it");
+	    				al.add(word);
+	    				al.show();
+	        			
+	        		}
+	        }
+
+		        
+		   
+	
+	//***********************************DistinctRandomNumber***********************************************
+
+	public static void distinctRandomNumber(int n) {
+		
+		 ArrayList<Integer> list = new ArrayList<Integer>();
+		 
+	/*	 Random dice = new Random();
+			for(int i = 0 ; i < n ; i++) {
+				list.add(1+dice.nextInt(6));
+			//	System.out.println(num);
+		
+			}*/
+			
+        for (int i=1; i<n; i++) {
+             list.add(new Integer(i));
+         }
+         Collections.shuffle(list);
+         for (int i=1; i<n; i++) {
+             System.out.println("Random Number= "+list.get(i));
+         }
+		
+		
+		//Collections.shuffle(list);
+}
+	
+	//******************************OrderedList**********************
+
+	public static void orderedList(int number) throws Exception{
+		String str="";
+	       MyOrderedList al = new MyOrderedList();
+	       MyLinkedList<Integer> al2 = new MyLinkedList<Integer>();
+
+		
+		Scanner reader = new Scanner(new File("orderedlist.txt"));
+		while (reader.hasNext()){
+			str = reader.nextLine();
+	
+		}
+		
+		String s = str;
+		//String check = "";
+        String[] arrOfStr = s.split(",", str.length()); 
+       int[] array = new int[arrOfStr.length];
+        for(int i  = 0 ; i < arrOfStr.length ; i++) {
+        	array[i]= Integer.parseInt(arrOfStr[i]);
+        }
+    	NodeOrderedList new_node1; 
+
+        for(int i = 0 ; i < arrOfStr.length ; i++) {
+    		new_node1 = al.newNode(array[i]); 
+    		al.sortedInsert(new_node1);
+        	//al.add(array[i]);
+        }
+		al.printList();
+
+       //al.show();
+       
+      if(al.search(number)){
+    	  System.out.println();
+   		  System.out.println("this number is alredy in list so remove it");
+			int Deletedata = al.index(number);
+			al.pop(Deletedata);
+			al.show();
+   	
+       	   }
+   		else 
+   		{
+   			System.out.println();
+   			System.out.println("this number is not in the list so add it");
+   			new_node1 = al.newNode(number); 
+   			al.sortedInsert(new_node1); 
+				al.show();
+   			
+   		}
+		}
+	} 
+
+
+		        
+		     
+
+			  	
+		
+		
+
+	
 
 			
 

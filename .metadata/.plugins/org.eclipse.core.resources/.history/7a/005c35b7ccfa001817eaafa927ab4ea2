@@ -1,0 +1,24 @@
+package com.bridgelabz.stringandarrays;
+
+import utility.Utility;
+
+public class MergeSort {
+	public static void main(String[] args) {
+		int n ;
+		System.out.println("Enter any number: ");
+		n = Utility.getInt();
+		int array[] = new int[n];
+		Utility.mergeSort(array,n);
+		
+		
+
+		if(n<0) {
+			System.out.println("please enter positive number: ");
+			n = Utility.getInt();
+			Utility.mergeSort(array,n);
+		}else {
+			Utility.mergeSort(array,n);
+
+		}
+	}
+}

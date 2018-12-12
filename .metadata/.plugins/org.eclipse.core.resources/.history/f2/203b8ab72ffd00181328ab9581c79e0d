@@ -1,0 +1,25 @@
+package com.bridgelabz.datastructure;
+
+public class Node<T> {
+  /*  public Node<T> nextNode = null;
+    public Node<T> previousNode = null;
+    public int index;
+    public T data;
+
+    public Node(T data){
+        this.data = data;
+    }*/
+	
+	public T data;
+	T front;
+	Node<T> next;
+    Node<T> pre;
+    
+    Node(T data){
+    	this.data = data;
+    }
+    Node(T front, Node<T> next){
+    	this.next = next;
+    	this.front = front;
+    }
+}

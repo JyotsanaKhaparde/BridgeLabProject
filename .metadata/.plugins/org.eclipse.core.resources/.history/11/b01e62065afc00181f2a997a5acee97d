@@ -1,0 +1,8 @@
+package com.bridgelabz.javaprogram;
+
+public class DistinctRandomNumber {
+	public static void main(String[] args) {
+		
+	}
+
+}

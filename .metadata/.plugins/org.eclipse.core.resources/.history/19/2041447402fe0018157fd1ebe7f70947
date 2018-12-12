@@ -1,0 +1,16 @@
+package com.bridgelabz.datastructure;
+
+public class NodeOrderedList<T> {
+	T data;
+	T front;
+	Node<T> next;
+    Node<T> pre;
+    //super();
+  Node(T data){
+    	this.data = data;
+    }
+    Node(T data, Node<T> next){
+    	this.next = next;
+    	this.data = data;
+    }
+}
