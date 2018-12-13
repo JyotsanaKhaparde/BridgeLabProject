@@ -1,0 +1,14 @@
+package com.bridgelabz.datastructure;
+
+public class DequeueTest {
+	public static void main(String[] args) {
+		IDequeue<Integer> obj = new MyDequeue<>();
+		//obj.addFront(10);
+		//obj.addFront(20);
+		//obj.addFront(30);
+		obj.addRear(40);
+		obj.show();
+
+	}
+
+}

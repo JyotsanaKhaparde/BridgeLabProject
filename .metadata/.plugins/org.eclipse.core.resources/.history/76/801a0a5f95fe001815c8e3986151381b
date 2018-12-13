@@ -1,0 +1,43 @@
+package com.bridgelabz.datastructure;
+
+public class StackTest {
+	public static void main(String[] args) {
+		MyStack<Integer> obj = new MyStack<Integer>();
+		System.out.println("Is it Empty: "+obj.isEmpty());
+
+		obj.push(15);
+		obj.show();
+
+		obj.push(20);
+		obj.show();
+
+		obj.push(30);
+		obj.show();
+		
+		obj.push(40);
+		//.show();
+		
+		obj.push(50);
+		//obj.show();
+		
+		
+
+		System.out.println(obj.pop());
+		System.out.println(obj.pop());
+
+		System.out.println(obj.pop());
+
+		System.out.println(obj.pop());
+		System.out.println(obj.pop());
+
+		System.out.println(obj.pop());
+
+
+		
+		//System.out.println("Top item in the stack is: "+obj.peek());
+		//System.out.println("size is: "+obj.size());
+
+		//obj.show();
+
+	}
+}

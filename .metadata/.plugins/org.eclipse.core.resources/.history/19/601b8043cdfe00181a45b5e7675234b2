@@ -1,0 +1,41 @@
+package com.bridgelabz.datastructure;
+
+public class MyDequeue<T> implements IDequeue<T>{
+	private size = 0;
+	@Override
+	public int size() {
+		return size;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void addFront(T data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addRear(T data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public T removeFront() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public T removeRear() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

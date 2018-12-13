@@ -1,0 +1,36 @@
+package com.bridgelabz.datastructure;
+
+public class MyQueue<T> implements IQueue<T>
+{
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public T enQueue(T data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public T deQueue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

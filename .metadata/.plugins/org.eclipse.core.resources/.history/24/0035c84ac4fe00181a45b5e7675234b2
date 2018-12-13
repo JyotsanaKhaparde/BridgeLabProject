@@ -1,0 +1,43 @@
+package com.bridgelabz.datastructure;
+
+import utility.Utility;
+
+public class BankingCashCounter {
+	public static void main(String[] args) {
+		
+		IQueue<Integer> obj = new MyQueue<>();
+
+		System.out.println("total cash balance in bank: ");
+		int total = Utility.getInt();
+		
+		System.out.println("Number of people in a queue: ");
+		int people = Utility.getInt();
+		
+		for(int i = 0 ; i <= people ; i++) {
+			obj.enQueue(i);
+		}
+		
+		System.out.println("Enter 1 for deposit money or 0 for withdrow money: ");
+		int choice = Utility.getInt();
+		
+		switch (choice) {
+		case 1:
+			System.out.println("Enter deposit amount: ");
+			int deposit = Utility.getInt();
+			total = total+deposit;
+			System.out.println("Total amount after deposit: "+total);
+			break;
+			
+		case 0:
+			System.out.println("Enter withdrow amount: ");
+			int withdrow = Utility.getInt();
+			total = total - withdrow;
+			System.out.println("Total amount after withdrow: "+total);
+			break;
+
+		default:
+			break;
+		}
+	}
+
+}

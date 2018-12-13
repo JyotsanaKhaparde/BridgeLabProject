@@ -1,0 +1,17 @@
+package com.bridgelabz.datastructure;
+
+import utility.Utility;
+
+public class BankingCashCounter {
+	public static void main(String[] args) {
+		
+		IQueue<Integer> obj = new MyQueue<>();
+
+		System.out.println("total cash balance in bank: ");
+		int total = Utility.getInt();
+		
+		System.out.println("Number of people in a queue: ");
+		int people = Utility.getInt();
+	}
+
+}

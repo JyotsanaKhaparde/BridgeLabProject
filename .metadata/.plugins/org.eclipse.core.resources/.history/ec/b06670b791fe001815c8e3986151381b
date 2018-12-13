@@ -1,0 +1,74 @@
+package com.bridgelabz.datastructure;
+
+import java.util.LinkedList;
+
+public class MyStack<T> {
+	MyLinkedList<T> stack = new MyLinkedList<T>();
+	//T[] stack =  new T[5];
+	int top = 0;
+	
+	//**********************************************
+
+	public void push(T data) {
+		if(top == 5) {
+			System.out.println("Stack is full");
+		}else {
+		stack.add(data);
+		top++;
+		}
+	}
+	
+	//************************************************
+	
+	public T pop(){
+		T data = null;
+		if(isEmpty()) {
+			System.out.println("Stack is empty");
+		}else {
+		top--;
+		data = stack.pop(top);
+		T x = stack.pop(top);
+		//x = 0;
+		}
+		return data;
+		
+	
+	}
+	
+	//*************************************************
+	
+	public T peek() {
+		T data;
+		data = stack.pop(top-1);
+		return data;
+	}
+	
+	//*************************************************
+	
+	public int size(){
+		return top;
+	}
+	
+	//*************************************************
+	
+	public boolean isEmpty() {
+		return top<=0;
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	//****************************************************
+	
+
+	public void show() {
+		for(int value : stack){
+			System.out.println(value+" ");
+		}
+		System.out.println();
+	}
+}
+
+	
+
+

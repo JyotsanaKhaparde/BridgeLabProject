@@ -1,0 +1,9 @@
+package com.bridgelabz.datastructure;
+
+public class DequeueTest {
+	public static void main(String[] args) {
+		IDequeue<Integer> obj = new MyDequeue<>();
+
+	}
+
+}

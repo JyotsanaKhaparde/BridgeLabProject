@@ -1,0 +1,12 @@
+package com.bridgelabz.datastructure;
+
+public interface IQueue<T> {
+// T Queue[];
+ int size();
+// T front;
+// T rear;
+ public T enQueue(T data);
+ public void show();
+ public T deQueue();
+
+}

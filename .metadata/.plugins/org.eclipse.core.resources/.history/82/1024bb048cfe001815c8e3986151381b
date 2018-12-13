@@ -1,0 +1,59 @@
+package com.bridgelabz.datastructure;
+
+public class MyStack<T> {
+	int[] stack =  new int[5];
+	int top = 0;
+	
+	//**********************************************
+
+	public void push(T data) {
+		stack[top] =  (Integer) data;
+		top++;
+	}
+	
+	//************************************************
+	
+	public int pop(){
+		int data;
+		top--;
+		data = stack[top];
+		stack[top] = 0;
+		return data;
+		
+	}
+	
+	//*************************************************
+	
+	public int peek() {
+		int data;
+		data = stack[top-1];
+		return data;
+	}
+	
+	//*************************************************
+	
+	public int size(){
+		return top;
+	}
+	
+	//*************************************************
+	
+	public boolean isEmpty() {
+		return top<=0;
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+
+	public void show() {
+		for(int value : stack){
+			System.out.println(value+" ");
+		}
+	}
+}
+
+	
+
+

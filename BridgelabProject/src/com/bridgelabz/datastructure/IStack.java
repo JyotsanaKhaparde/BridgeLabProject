@@ -1,0 +1,14 @@
+package com.bridgelabz.datastructure;
+
+public interface IStack<T> {
+	boolean push(T value);
+	T pop();
+	boolean contain(T value);
+	int size();
+	void clear();
+	boolean isEmpty();
+	public T peek();
+//	public T pop1();
+	//boolean containchar(char c);
+
+}
