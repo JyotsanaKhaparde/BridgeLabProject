@@ -14,6 +14,7 @@ import java.util.Random;
 //https://github.com/Saurabh323351/Bridgelabz/blob/master/BridgelabzPrograms/src/com/bridgelab/utility/Utility.java
 import java.util.Scanner;
 
+import com.bridgelabz.datastructure.HashChainingMethods;
 import com.bridgelabz.datastructure.MyLinkedList;
 import com.bridgelabz.datastructure.MyOrderedList;
 import com.bridgelabz.datastructure.NodeOrderedList;
@@ -794,7 +795,7 @@ public class Utility {
 	 */
 	public static long factorial(int n) {
 		int fact = 1;
-		int n1;
+		//int n1;
 		
 			for(int i1 = 1 ; i1<= n ; i1++) {
 			fact = fact*i1;
@@ -1208,28 +1209,34 @@ public class Utility {
 		 int nR = Right.length;
 		 
 		 while(i < nL && j < nR) {
-			 if(Left[i].compareToIgnoreCase(Right[j])<0) {
+			 if(Left[i].compareToIgnoreCase(Right[j])<0) 
+			 {
 				 array[k]=Left[i];
 				 k++;
 				 i++;
-			 }else {
+			 }
+			 else 
+			 {
 				 array[k]=Right[j];
 				 k++;
 				 j++;
 			 }
-			}
-		 while(i < nL) {
+		 }
+		 while(i < nL)
+		 {
 			 array[k]=Left[i];
 			 i++;
 			 k++;
 		 }
-		 while(j < nR) {
+		 while(j < nR) 
+		 {
 			 array[k]=Right[j];
 			 j++;
 			 k++;
 		 }
 		 
-		 for(int k1 = 0 ; k1 < n ; k1++) {
+		 for(int k1 = 0 ; k1 < n ; k1++)
+		 {
 			 System.out.println(array[k1]);
 		 }
 		
@@ -1310,8 +1317,8 @@ public class Utility {
 
 	public static void orderedList(int number) throws Exception{
 		String str="";
-	       MyOrderedList al = new MyOrderedList();
-	       MyLinkedList<Integer> al2 = new MyLinkedList<Integer>();
+	       MyOrderedList<Integer> al = new MyOrderedList<Integer>();
+	       //MyLinkedList<Integer> al2 = new MyLinkedList<Integer>();
 
 		
 		Scanner reader = new Scanner(new File("orderedlist.txt"));
@@ -1327,7 +1334,7 @@ public class Utility {
         for(int i  = 0 ; i < arrOfStr.length ; i++) {
         	array[i]= Integer.parseInt(arrOfStr[i]);
         }
-    	NodeOrderedList new_node1; 
+    	NodeOrderedList<Integer> new_node1; 
 
         for(int i = 0 ; i < arrOfStr.length ; i++) {
     		new_node1 = al.newNode(array[i]); 
@@ -1356,7 +1363,106 @@ public class Utility {
    			
    		}
 		}
-	} 
+	
+	//************************HashingFunction*********************************
+
+	public static void hashingFunction(int num) throws Exception {
+		
+		MyLinkedList<Integer> obj1 = new MyLinkedList<Integer>();
+		
+		String str="";
+		int i;
+		Scanner scan = new Scanner(new File("hashfunction.txt"));
+	
+		
+		while(scan.hasNext())
+	     {
+
+	          String line = scan.nextLine(); 
+	         // System.out.println(line);
+	          String[] words = line.split(" ");
+	        /*  for( i = 0 ; i <  words.length ; i++) {
+		         System.out.println(words[i]);
+	          }*/
+	          
+	         int[] number = new int[words.length];
+	          for(i = 0; i < number.length ; i++) {
+	        	  number[i] = Integer.parseInt(words[i]);
+		          System.out.println(number[i]);
+
+	          } 
+	        	  /*for(i = 0 ; i < number.length ; i++) {
+	        	  if(number[i] == num) {
+	        		  number[i] = number[number.length - 1];
+	        	  }
+	        	 
+		         // System.out.println(number[i]);
+
+	        	  }
+	        	  int[] newnumber = new int[number.length - 1];
+	        	  
+	        	  for(i = 0 ; i < newnumber.length ; i++) {
+	        		  newnumber[i] = number[i];
+	        	  }
+	        	  
+	        	  for(i = 0 ; i < newnumber.length ; i++) {
+	        		  System.out.println(newnumber[i]);
+	        	  }*/
+	        	  
+	        	  
+	        /*	  for(int j = 0 ; j < number.length ; j++) {
+	        		  if(number[j] != num) {
+		        		  number[number.length+1] = num;
+		        	  }
+	        		 }
+	        	  int[] newnumber2 = new int[number.length +1];
+	        	  
+	        	  for(int j = 0 ; j < newnumber2.length ; j++) {
+	        		  newnumber2[j] = number[j];
+	        	  }
+	        	  int[] newnumber = new int[number.length - 1];
+
+	        	  
+	        	  for(int j = 0 ; j < newnumber.length ; j++) {
+	        		  System.out.println(newnumber[j]);
+	        	  }*/
+	        	  
+	        	  
+	        	//  System.out.println(Arrays.toString(newnumber));
+	           // System.out.println("numbers are: "+number[i]);
+	      }
+		
+	//	System.out.println("Enter size: ");
+		//HashChainingMethods obj = new HashChainingMethods(Utility.getInt());
+		
+		//for(int i = 0 ; i < words.)
+		
+		
+		
+		
+	}
+	
+	//**************************************************************
+	
+
+	public static void bubbleSortString(String[] array, int n) {
+		
+
+        System.out.println("Please enter names to sort");              
+        Scanner s1 = new Scanner(System.in);
+        for (int i = 0; i < array.length ;i++){
+
+            array[i] = s1.nextLine();
+        }
+        
+        for(int i = 0 ; i < array.length ; i++) {
+        	//System.out.println(Arrays.sort(array[i]));
+        }
+
+
+		
+	}
+	}
 
 
 		        

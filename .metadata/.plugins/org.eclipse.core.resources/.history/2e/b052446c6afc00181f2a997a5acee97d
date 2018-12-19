@@ -1,7 +1,0 @@
-package com.bridgelabz.datastructure;
-
-public class TestLinkedListMethod<T> {
-public static void main(String[] args) {
-	MyLinkedList<T> b = new MyLinkedList<T>();
-}
-}

@@ -1,134 +1,149 @@
 package com.bridgelabz.datastructure;
 
-import java.util.Arrays;
+import java.util.NoSuchElementException;
 
-public class StackMethods<T> implements IStack<T> {
-	private static final int DEFAULT_CAPACITY = 10;
-	private T[] store;
+public class StackMethods<T> extends Stack<T> {
 	private int size = 0;
-	private int capacity;
-	
-	//****************************************************
-	
-	public StackMethods() {
-		capacity = DEFAULT_CAPACITY;
-		store = (T[]) new Object[DEFAULT_CAPACITY];
-	}
-	
-	//*****************************************************
-	
-	public StackMethods(int capacity) {
-		this.capacity = capacity;
-		store = (T[]) new Object[capacity];
+	protected Stack<T> top ;
+	Stack<T> n;
 
-	}
-	
-	//**************************************************
+ 
 
-	public boolean push(T value) {
-		if(size >= store.length) {
-			int newSize = size + (size >>1);
-			store = Arrays.copyOf(store, newSize);
-		}
-		store[size++] = value;
-		return true;
-	}
-	
-	//***************************************************
+    /*  Constructor  */
 
-	/*public T pop() {
-		if(size <= 0 ) 
-			return null;
-		
-		T value =store[--size];
-		store[size] = null;
-		
-		int reduceSize = size;
-		if(size >= capacity && size < (reduceSize +reduceSize << 1)) {
-			System.arraycopy(store, 0, store, 0, size);
-		}
-		
-		return value;
-	}*/
-	
-	public T pop(){
-		T data = null;
-		if(isEmpty()) {
-			System.out.println("Stack is empty");
-		}else {
-		size--;
-		data = store[size];
-		}
-		//store[size] = 0;
-		return data;
-		
+    public StackMethods()
+
+    {
+
+        top = null;
+
+        size = 0;
+
+    }    
+
+    /*  Function to check if stack is empty */
+
+    public boolean isEmpty()
+
+    {
+
+    	if(top==null)
+            return true;
+        else
+            return false;
+    }    
+
+
+    
+
+    /*  Function to get the size of the stack */
+
+    public int getSize()
+
+    {
+
+        return size;
+
+    }    
+
+    /*  Function to push an element to the stack */
+
+    public void push(T data)
+
+    {
+
+        Stack<T> nptr = new Stack<T> (data, null);
+
+        if (top == null)
+
+            top = nptr;
+
+        else
+
+        {
+
+            nptr.setLink(top);
+
+            top = nptr;
+
+        }
+
+        size++ ;
+
+    }    
+
+    /*  Function to pop an element from the stack */
+
+    public T pop()
+
+    {
+
+        if (isEmpty() )
+
+            throw new NoSuchElementException("Underflow Exception") ;
+
+        Stack<T> ptr = top;
+
+        top = ptr.getLink();//get link to next node
+
+        size-- ;
+
+        return ptr.getData();
+
+    }    
+
+    /*  Function to check the top element of the stack */
+
+    public T peek()
+
+    {
+
+        if (isEmpty() )
+
+            throw new NoSuchElementException("Underflow Exception") ;
+
+        return top.getData();
+
+    }    
+
+    /*  Function to display the status of the stack */
+
+    public void display()
+
+    {
+
+        System.out.print("\nStack = ");
+
+        if (size == 0) 
+
+        {
+
+            System.out.print("Empty\n");
+
+            return ;
+
+        }
+
+        Stack<T> ptr = top;
+
+        while (ptr != null)
+
+        {
+
+            System.out.print(ptr.getData()+" ");
+
+            ptr = ptr.getLink();
+
+        }
+
+        System.out.println();        
+
+    }
+
 }
-	
-	//*********************************************************
-
-	public boolean contain(T value) {
-		boolean found = false;
-		for(int i =0 ; i < size ; i++) {
-			T element  = store[i];
-			
-			if(element.equals(value)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	
-	
-	//*************************************************************
-
-	public int size() {
-		return size;
-	}
-	
-	//***********************************************************
-
-	public void clear() {
-		for(int i = 0 ; i < size ; i++) {
-			store[i] = null;
-		}
-	}
-	
-	//**********************************************************
-
-	public boolean isEmpty() {
-		return size==0;
-	}
-	
-	//***********************************************************
-	
-	public String toString() {
-		StringBuilder buildre = new StringBuilder();
-		buildre.append("[");
-		
-		for(int i = size-1 ;i >= 0 ; i--) {
-			buildre.append(store[i]);
-			
-			if(i > 0 ) {
-				buildre.append(",");
-			}
-			
-		}
-		buildre.append("]");
-		
-		return buildre.toString();
-	}
-	
-	//*************************************************************
-	
-	public T peek() {
-		T data;
-		data = store[size-1];
-		return data;
-	}
 
 	
 
 	
 
-}
+

@@ -13,9 +13,9 @@ public class Node<T> {
 	
 	
 	T data;
-	T front;
+	//T front;
 	Node<T> next;
-    Node<T> pre;
+   // Node<T> pre;
     //super();
   Node(T data){
     	this.data = data;

@@ -1,91 +1,151 @@
 package com.bridgelabz.datastructure;
 
-import java.time.temporal.IsoFields;
+import java.util.NoSuchElementException;
 
-public class MyQueue<T> implements IQueue<T>
+public class MyQueue<T> extends Queue<T>
 {
-	private static final int DEFAULT_CAPACITY = 10;
-	private T[] queue;
-	private int size = 0;
-	private int capacity;
-	int rear;
-	int front;
-	
-		//****************************************************
-	
-		public MyQueue() {
-			capacity = DEFAULT_CAPACITY;
-			queue = (T[]) new Object[DEFAULT_CAPACITY];
-		}
-		
-		//*****************************************************
-		
-		public MyQueue(int capacity) {
-			this.capacity = capacity;
-			queue = (T[]) new Object[capacity];
+    protected Queue<T> front, rear;
 
-		}
-		
-		//*****************************************************
+    public int size=0;
 
-		@Override
-		public int size() {
-			return size;
-		}
-		
-		//*****************************************************
+ 
 
-		@Override
-		public void enQueue(T data) {
-			if(! isFull()) {
-			queue[rear] = data;
-			rear++;
-			size++;
-			}else {
-				System.out.println("queue is full");
-			}
-		}
-		
-		//*****************************************************
+    /* Constructor */
 
-		@Override
-		public void show() {
-			System.out.println("Element: ");
-			for(int i = 0 ; i < size ; i++) {
-				System.out.println(queue[(front+i)%capacity]+" ");
-			}
-		}
-		
-		//****************************************************
+    public MyQueue()
 
-		@Override
-		public T deQueue() {
-			T data =  queue[front];
+    {
 
-			if(! isEmpty()) {
-			front = (front+1)%capacity;
-			size--;
-			}
-			else 
-			{
-				System.out.println("queue is empty");
-				//return data;
-			}
-			return data;
-		}
-		
-		//***************************************************
+        front = null;
 
-		@Override
-		public boolean isEmpty() {
-			return size==0;
-		}
-		
-		//***********************************************
+        rear = null;
 
-		@Override
-		public boolean isFull() {
-			return size == capacity;
-		}
+        size = 0;
+
+    }    
+
+    /*  Function to check if queue is empty */
+
+    public boolean isEmpty()
+
+    {
+
+        return front == null;
+
+    }    
+
+    /*  Function to get the size of the queue */
+
+    public int getSize()
+
+    {
+
+        return size;
+
+    }    
+
+    /*  Function to insert an element to the queue */
+
+    public void insert(T data)
+
+    {
+
+    	Queue<T> nptr = new Queue<T>(data, null);
+
+        if (rear == null)
+
+        {
+
+            front = nptr;
+
+            rear = nptr;
+
+        }
+
+        else
+
+        {
+
+            rear.setLink(nptr);
+
+            rear = rear.getLink();
+
+        }
+
+        size++ ;
+
+    }    
+
+    /*  Function to remove front element from the queue */
+
+    public T remove()
+
+    {
+
+        if (isEmpty() )
+
+            throw new NoSuchElementException("Underflow Exception");
+
+        Queue<T> ptr = front;
+
+        front = ptr.getLink();        
+
+        if (front == null)
+
+            rear = null;
+
+        size-- ;        
+
+        return ptr.getData();
+
+    }    
+
+    /*  Function to check the front element of the queue */
+
+    public T peek()
+
+    {
+
+        if (isEmpty() )
+
+            throw new NoSuchElementException("Underflow Exception");
+
+        return front.getData();
+
+    }    
+
+    /*  Function to display the status of the queue */
+
+    public void display()
+
+    {
+
+        System.out.print("\nQueue = ");
+
+        if (size == 0)
+
+        {
+
+            System.out.print("Empty\n");
+
+            return ;
+
+        }
+
+        Queue<T> ptr = front;
+
+        while (ptr != rear.getLink() )
+
+        {
+
+            System.out.print(ptr.getData()+" ");
+
+            ptr = ptr.getLink();
+
+        }
+
+        System.out.println();        
+
+    }
 
 }

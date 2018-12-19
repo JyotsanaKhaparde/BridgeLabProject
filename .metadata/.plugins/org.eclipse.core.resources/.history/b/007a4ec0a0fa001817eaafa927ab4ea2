@@ -1,8 +1,0 @@
-package com.bridgelabz.stringandarrays;
-
-public class InsertionSort {
-	public static void main(String[] args) {
-		
-	}
-
-}

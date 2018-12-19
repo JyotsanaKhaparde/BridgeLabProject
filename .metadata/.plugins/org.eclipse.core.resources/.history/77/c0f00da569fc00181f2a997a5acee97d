@@ -1,7 +1,0 @@
-package com.bridgelabz.datastructure;
-
-public class TestLinkedListMethod {
-public static void main(String[] args) {
-	
-}
-}

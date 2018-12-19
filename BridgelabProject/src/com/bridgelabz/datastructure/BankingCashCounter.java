@@ -5,7 +5,7 @@ import utility.Utility;
 public class BankingCashCounter {
 	public static void main(String[] args) {
 		
-		IQueue<Integer> obj = new MyQueue<>();
+		MyQueue<Integer> obj = new MyQueue<Integer>();
 
 		System.out.println("total cash balance in bank: ");
 		int total = Utility.getInt();
@@ -14,7 +14,7 @@ public class BankingCashCounter {
 		int people = Utility.getInt();
 		
 		for(int i = 0 ; i <= people ; i++) {
-			obj.enQueue(i);
+			obj.insert(i);
 		}
 		for(int i = 0 ; i < people ; i++ ) {
 		System.out.println("Enter 1 for deposit money or 0 for withdrow money: ");

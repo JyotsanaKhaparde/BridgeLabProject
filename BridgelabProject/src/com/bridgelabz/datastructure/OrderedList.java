@@ -7,7 +7,7 @@ public class OrderedList {
 	public static void main(String[] args) throws Exception {
 		//take integer from user
 		
-			System.out.println("Enter any word for checking : ");
+			System.out.println("Enter any number for checking : ");
 				int number = Utility.getInt();
 				Utility.orderedList(number);
 				

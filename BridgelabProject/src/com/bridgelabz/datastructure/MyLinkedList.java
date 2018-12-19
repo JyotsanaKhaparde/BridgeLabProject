@@ -3,8 +3,8 @@ package com.bridgelabz.datastructure;
 
 public class MyLinkedList<T> {
 	private Node<T> lastNode;
-    private  Node<T> first;
-    Node<T> pre = null;
+   // private  Node<T> first;
+   // Node<T> pre = null;
     private int count = 0; 
     Node<T> head;
 
@@ -86,7 +86,7 @@ public class MyLinkedList<T> {
     
     //insert at any location
     
-    public void insertAt(int index , T data) {
+    public void insertAt( int index,T data ) {
     	Node<T> next = head;
 
     	Node<T>  node = new Node<T>(data,next);

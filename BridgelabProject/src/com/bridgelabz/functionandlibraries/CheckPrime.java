@@ -22,7 +22,7 @@ public class CheckPrime {
 		}
 	}
 
-	private static boolean isPrime(int n) {
+	public static boolean isPrime(int n) {
 		int n1;
 		if(n<0) {
 			System.out.println("please enter positive number: ");
